@@ -1,0 +1,14 @@
+.git
+.github
+.venv
+.env
+.DS_Store
+__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+artifacts
+mlruns
+mlflow.db
+tests
+docs/career

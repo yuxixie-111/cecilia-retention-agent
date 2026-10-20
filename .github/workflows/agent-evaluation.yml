@@ -1,0 +1,30 @@
+name: Agent Evaluation
+
+on:
+  pull_request:
+    paths:
+      - "app/agents/**"
+      - "app/tools/**"
+      - "configs/prompts/**"
+      - "pipelines/evaluation/**"
+      - "data/golden/**"
+  workflow_dispatch:
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    env:
+      AGENT_PROVIDER: deterministic
+      RETRIEVAL_BACKEND: lexical
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python -m scripts.bootstrap --rows 500 --max-iter 1000
+      - run: python -m scripts.run_evaluation
+      - uses: actions/upload-artifact@v4
+        with:
+          name: agent-evaluation
+          path: artifacts/evaluations/agent_eval.json

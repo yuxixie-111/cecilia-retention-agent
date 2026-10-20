@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.env
+.DS_Store
+~$*.pptx
+mlruns/
+mlflow.db
+
+# Runtime and generated artifacts. Keep only the compact tuning leaderboard
+# used by the teaching UI; bootstrap/evaluation recreate everything else.
+artifacts/**
+!artifacts/models/
+!artifacts/models/tuning/
+!artifacts/models/tuning/grid_search/
+!artifacts/models/tuning/grid_search/leaderboard.json

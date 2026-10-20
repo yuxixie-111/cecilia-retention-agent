@@ -1,0 +1,9 @@
+{"clinic_id": "CLN-0095", "expected_risk_band": "high", "required_action_keywords": ["service", "orders", "stocking"], "minimum_review_score": 0.8, "expected_human_approval": true, "reference_probability": 0.999494}
+{"clinic_id": "CLN-0063", "expected_risk_band": "high", "required_action_keywords": ["service", "orders", "invoice"], "minimum_review_score": 0.8, "expected_human_approval": true, "reference_probability": 0.997178}
+{"clinic_id": "CLN-0049", "expected_risk_band": "high", "required_action_keywords": ["stocking", "invoice"], "minimum_review_score": 0.8, "expected_human_approval": true, "reference_probability": 0.976992}
+{"clinic_id": "CLN-0084", "expected_risk_band": "medium", "required_action_keywords": ["service", "invoice"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.545916}
+{"clinic_id": "CLN-0080", "expected_risk_band": "medium", "required_action_keywords": ["orders"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.557154}
+{"clinic_id": "CLN-0011", "expected_risk_band": "medium", "required_action_keywords": ["service", "stocking"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.542305}
+{"clinic_id": "CLN-0131", "expected_risk_band": "low", "required_action_keywords": ["monitor"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.003496}
+{"clinic_id": "CLN-0120", "expected_risk_band": "low", "required_action_keywords": ["monitor"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.005892}
+{"clinic_id": "CLN-0061", "expected_risk_band": "low", "required_action_keywords": ["monitor"], "minimum_review_score": 0.8, "expected_human_approval": false, "reference_probability": 0.010524}

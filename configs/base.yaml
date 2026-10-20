@@ -1,0 +1,50 @@
+application:
+  name: Cecilia Clinic Supply Renewal
+  environment: local
+
+agent:
+  provider: microsoft_ollama
+  ollama_model: qwen2.5:7b
+  ollama_base_url: http://localhost:11434
+  allow_deterministic_fallback: false
+  llm_temperature: 0.2
+  llm_max_tokens: 1500
+  llm_timeout_seconds: 240
+  max_review_iterations: 1
+  risk_thresholds:
+    high: 0.70
+    medium: 0.40
+
+model:
+  random_state: 42
+  test_size: 0.25
+  max_iter: 1000
+  regularization_c: 0.5
+
+retrieval:
+  backend: lexical
+  embedding_provider: azure_openai
+  top_k: 3
+  min_score: 0.05
+  chroma_persist_path: artifacts/chroma
+  chroma_collection: retention_knowledge
+  azure_openai_api_version: 2024-02-15-preview
+  azure_openai_deployment: text-embedding-3-large
+  azure_openai_timeout_seconds: 30
+
+memory:
+  max_session_messages: 12
+  max_clinic_memories: 8
+
+skills:
+  root_path: skills
+  max_resource_bytes: 100000
+
+storage:
+  database_path: artifacts/retention.db
+  model_path: artifacts/models/lapse_model.joblib
+  model_metadata_path: artifacts/models/lapse_model_metadata.json
+  raw_history_data_path: data/raw/clinic_history.csv
+  raw_current_data_path: data/raw/current_clinics.csv
+  knowledge_dir: data/knowledge
+  golden_dataset_path: data/golden/clinic_renewal_cases.jsonl

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Save Desk Triage"
+  short_description: "Order near-term renewals by commercial urgency"
+  default_prompt: "Use $save-desk-triage to decide which renewal accounts to call first."

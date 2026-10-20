@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bootstrap local project",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "scripts.bootstrap", "--rows", "1200", "--max-iter", "1000"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run API",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "uvicorn", "app.api.main:app", "--reload"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Run UI",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "streamlit", "run", "app/ui/streamlit_app.py"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Run tests",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "-q"],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run agent evaluation",
+      "type": "process",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "scripts.run_evaluation"],
+      "problemMatcher": []
+    }
+  ]
+}

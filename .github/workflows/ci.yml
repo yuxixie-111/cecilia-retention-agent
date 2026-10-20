@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      AGENT_PROVIDER: deterministic
+      RETRIEVAL_BACKEND: lexical
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m scripts.bootstrap --rows 350 --max-iter 1000
+      - run: ruff check .
+      - run: pytest -q -m ""
+      - run: python -m scripts.run_evaluation
